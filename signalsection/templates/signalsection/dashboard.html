@@ -1,0 +1,220 @@
+{% extends "signalsection/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+{% block content %}
+		<!-- Page info section -->
+			<section class="page-info-section">
+				<div class="container">
+				</div>
+			</section>
+			<!-- Page info end -->
+			{% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-{{message.tags}} text-center">{{ message }}</div>
+              {% endfor %}
+          {% endif %}
+
+
+		<!-- TradingView Widget BEGIN -->
+		<div class="tradingview-widget-container">
+		  <div class="tradingview-widget-container__widget"></div>
+		  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+		  {
+		  "symbols": [
+			{
+			  "proName": "FOREXCOM:SPXUSD",
+			  "title": "S&P 500"
+			},
+			{
+			  "proName": "FOREXCOM:NSXUSD",
+			  "title": "Nasdaq 100"
+			},
+			{
+			  "proName": "FX_IDC:EURUSD",
+			  "title": "EUR/USD"
+			},
+			{
+			  "proName": "FX_IDC:GBPUSD",
+			  "title": "GBP/USD"
+			},
+			{
+			  "proName": "FX_IDC:EURGBP",
+			  "title": "EUR/GBP"
+			},
+			{
+			  "proName": "FX_IDC:USDJPY",
+			  "title": "USD/JPY"
+			},
+			{
+			  "proName": "BITSTAMP:BTCUSD",
+			  "title": "BTC/USD"
+			},
+			{
+			  "proName": "BITSTAMP:ETHUSD",
+			  "title": "ETH/USD"
+			}
+		  ],
+		  "colorTheme": "light",
+		  "isTransparent": false,
+		  "displayMode": "adaptive",
+		  "locale": "en"
+		}
+		  </script>
+		</div>
+		<!-- TradingView Widget END -->
+
+		{% if user.is_authenticated %}
+			<div class="col-md-12 text-center mt-4">
+				{% if user.is_signalmanager %}
+				<a class="post-date" href="{% url 'announcement' %}">Announce | </a>
+				<a class="post-date" href="{% url 'signal-create' %}">New Signal | </a>
+				{% endif %}
+				{% if user.is_newslettermanager %}
+				<a class="post-date" href="{% url 'newsletter' %}">  Newsletter  | </a>
+				{% endif %}
+				<a class="post-date" href="{% url 'settings' %}">  Settings | </a>
+				<a class="post-date" href="{% url 'logout' %}">  Logout</a>
+			</div>
+		{% endif %}
+
+		{% if request.user.customer.membership or request.user.allowaccess %}
+			<section class="single-blog-page mt-5">
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-lg-8">
+							<!--{% if user.is_authenticated %}
+							<div class="col-md-12 text-right mb-4">
+								{% if user.is_staff %}
+								<a class="site-btn sb-gradients" href="{% url 'signal-create' %}">New Signal</a>
+								{% endif %}
+								<a class="site-btn sb-gradients" href="{% url 'logout' %}">Logout</a>
+							</div>
+							{% endif %}-->
+							<div class="row">
+							{% for signal in signals %}
+								<div class="col-md-4 mb-3">
+									<div class="blog-item">
+										<div class="blog-text">
+											<div class="post-date"><a href="#">{{ signal.category }}</a>{% if signal.author == user or request.user.is_staff %}
+																											<a class="fa fa-edit text-right" href="{% url 'signal-update' signal.id %}"></a>
+																											<a class="ti-trash text-right" href="{% url 'signal-delete' signal.id %}"></a>
+
+																										{% endif %}
+											</div>
+											<p>{{ signal.body|safe }}</p>
+											<div class="post-meta">
+												{% if request.user.is_staff %}
+												<a href=""><i class=""></i> {{ signal.author.first_name }}</a><br>
+												{% endif %}
+												<a href=""><i class="fa fa-clock-o"></i> {{ signal.date_posted|date:"d M, y. H:i" }}</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+							</div>
+							{% if is_paginated %}
+     <div class="text-center mt-5 mb-5">
+        {% if page_obj.has_previous %}
+
+                 <a class ="btn btn-outline-primary py-2 px-3" href="?page=1"> First</a>
+                 <a class ="btn btn-outline-primary py-2 px-3" href="?page={{ page_obj.previous_page_number }}"> <</a>
+
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <a class ="btn btn-primary py-2 px-3" href="?page={{ num }}"> {{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class ="btn btn-outline-primary py-2 px-3" href="?page={{ num }}"> {{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+
+        {% if page_obj.has_next %}
+
+                 <a class ="btn btn-outline-primary py-2 px-3" href="?page={{ page_obj.next_page_number }}"> ></a>
+                 <a class ="btn btn-outline-primary py-2 px-3" href="?page={{ page_obj.paginator.num_pages }}"> Last</a>
+
+        {% endif %}
+
+		 </div>
+		{% endif %}
+
+
+						</div>
+
+						<div class="col-lg-4 col-md-6 sideber pt-5 pt-lg-0">
+						<div class="widget-area">
+							<div class="widget">
+							<h4 class="widget-title">Announcements</h4>
+							<ul class="popular-posts">
+								{% for announcement in announcement %}
+								<br>
+									<span>{{ announcement.date_posted|date:"d M, y. H:i" }}</span>
+									<h3>{{ announcement.body|safe }}</h3>
+
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		{% else %}
+			<section class="single-blog-page mt-5">
+				<div class="container">
+					<div class="row">
+							<div class="container">
+								<div class="section-title text-center">
+									<h3>Choose A Plan</h3>
+									<br>
+									<p>Start learning about Forex with interactive tutorials. It’s fun, easy, and takes only a few minutes! </p>
+								</div>
+								<div class="row col-ml-10">
+									<div class="col-md-6 process">
+										<div class="process-step">
+											<figure class="process-icon">
+												<img src="{% static 'signalsection/img/process-icons/2.png' %}" alt="#">
+											</figure>
+											<h4>Monthly Plan</h4>
+											<p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+											<a href="{% url 'checkout' %}?plan=signalmonthly" class="site-btn sb-gradients sbg-line mt-5">Get Started</a>
+
+										</div>
+									</div>
+									<div class="col-md-6 process">
+										<div class="process-step">
+											<figure class="process-icon">
+												<img src="{% static 'signalsection/img/process-icons/3.png' %}" alt="#">
+											</figure>
+											<h4>Yearly Plan</h4>
+											<p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+											<a href="{% url 'checkout' %}?plan=signalyearly" class="site-btn sb-gradients sbg-line mt-5">Get Started</a>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+					</div>
+				</div>
+			</section>
+
+		{% endif %}
+
+
+
+
+
+{% endblock %}

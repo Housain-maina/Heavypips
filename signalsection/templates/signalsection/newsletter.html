@@ -1,0 +1,93 @@
+{% extends "signalsection/base.html" %}
+{% load crispy_forms_tags %}
+{% crispy example_form %}
+{% load static %}
+
+
+{% block content %}
+
+
+<!-- Page info section -->
+<section class="page-info-section">
+    <div class="container">
+    </div>
+</section>
+<!-- Page info end -->
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "FOREXCOM:SPXUSD",
+      "title": "S&P 500"
+    },
+    {
+      "proName": "FOREXCOM:NSXUSD",
+      "title": "Nasdaq 100"
+    },
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR/USD"
+    },
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "BTC/USD"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "ETH/USD"
+    }
+  ],
+  "colorTheme": "light",
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+          {% if messages %}
+			  {% for message in messages %}
+				  <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+			  {% endfor %}
+		  {% endif %}
+
+<!-- Contact section -->
+<section class="contact-page spad">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+                <h5 class="text-center">Send Newsletter</h5>
+                <br>
+                <br>
+                <br>
+                <form method='POST' class="contact-form">
+                    {% csrf_token %}
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form.subject|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                 {{ form.content|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button class="site-btn sb-gradients mt-4" type='submit'>Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact section end -->
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'signalsection/base.html' %}
+{% load crispy_forms_tags %}
+{% crispy example_form %}
+{% load static %}
+
+{% block content %}
+
+    <section class="page-info-section">
+        <div class="container">
+        </div>
+        </section>
+
+    <section class="contact-page spad">
+    <div class="container">
+    <div class="row justify-content-center">
+
+
+            <div class="col-lg-8">
+            <h5 class="text-center">NEW ANNOUNCEMENT</h5>
+            <br>
+            <br>
+            <br>
+
+                <form method='POST'>
+                    {% csrf_token %}
+                    <div class="section-title contact-form">
+                        {{ form.media }}
+                        {{ form.body|safe }}
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button class="site-btn sb-gradients mt-4" type='submit'>Post</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

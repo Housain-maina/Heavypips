@@ -1,0 +1,44 @@
+{% extends 'signalsection/base.html' %}
+{% load static %}
+
+
+{% block content %}
+     <!-- Page info section -->
+	<section class="page-info-section">
+		<div class="container">
+		</div>
+	</section>
+	<!-- Page info end -->
+
+
+    <section class="single-blog-page spad">
+        <div class="container">
+            <div class="row">
+                    <div class="container">
+                        <div class="section-title text-center">
+                            <h3>Our Trusted Brokers</h3>
+                            <br>
+                            <p>Open a New Trading Account with any of Our Trusted Brokers using the Links Below To Get 10% Discount when you Subscribe to our First Signal Plan</p>
+                        </div>
+                        <div class="row col-ml-10">
+                            {% for broker in brokers %}
+                            <div class="col-md-6 process">
+                                <div class="process-step">
+                                    <h4>{{ broker.name }}</h4>
+                                    <p>{{ broker.description|safe }}</p>
+                                    <a href="{{ broker.url }}" target="_blank" class="site-btn sb-gradients sbg-line mt-5">Get Started</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+

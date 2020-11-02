@@ -1,0 +1,303 @@
+{% extends 'signalsection/base.html' %}
+{% load static %}
+
+
+{% block content %} 
+
+    <!-- Hero section -->
+	<section class="hero-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 hero-text">
+					<h2>Invest in <span>Forex</span> <br>Forex Trading</h2>
+					<h4>Use modern progressive technologies of Forex to earn money</h4>
+				</div>
+				<div class="col-md-6">
+					<img src="{% static 'signalsection/img/laptop.png' %}" class="laptop-image" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- About section -->
+	<section class="about-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 offset-lg-6 about-text">
+					<h2>Who We Are</h2>
+					<h5>Forex is an innovative payment network and a new kind of money.</h5>
+					<p>Heavypips is a group expert forex traders committed to helping you increase your profit in the forex market
+						through th</p>
+					<a href="" class="site-btn sb-gradients sbg-line mt-5">Continue Reading...</a>
+				</div>
+			</div>
+			<div class="about-img">
+				<img src="{% static 'signalsection/img/about-img.png' %}" alt="">
+			</div>
+		</div>
+		
+	</section>
+	<!-- About section end -->
+
+
+	<!-- Features section -->
+	<section class="features-section spad gradient-bg">
+	
+		<div class="container text-white">
+			<div class="section-title text-center">
+				<h2>Our Features</h2>
+				<p>Forex is the simplest way to exchange money at very low cost.</p>
+			</div>
+			<div class="row">
+				<!-- feature -->
+				<div class="col-md-6 col-lg-4 feature">
+					<i class="ti-mobile"></i>
+					<div class="feature-content">
+						<h4>Realtime Signals</h4>
+						<p>Because the forex market is really time sensitive, we use modern technologies to send our signals
+							as sms directly to the phone number you provided when creating your account.</p>
+					</div>
+				</div>
+				<!-- feature -->
+				<div class="col-md-6 col-lg-4 feature">
+					<i class="ti-shield"></i>
+					<div class="feature-content">
+						<h4>Safe & Secure</h4>
+						<p>Our staff work tirelessly to ensure that evey information you provided is safe and secure.
+						 And WE DO NOT share any of our clients' information with a third-party.</p>
+					</div>
+				</div>
+				
+				<!-- feature -->
+				<div class="col-md-6 col-lg-4 feature">
+					<i class="ti-headphone-alt"></i>
+					<div class="feature-content">
+						<h4>24/7 Experts Support</h4>
+						<p>We know that the forex market can be tedious sometimes and it requires one to be emotionally strong,
+							so we have a team of experts who have years of experience in the market and are more than
+							happy to offer you their support.</p>
+					</div>
+				</div>
+				
+			
+			</div>
+		</div>
+	</section>
+	<!-- Features section end -->
+
+
+	<!-- Process section -->
+	<section class="process-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2>Choose A Plan</h2>
+				<p>Start learning about Forex with interactive tutorials. It’s fun, easy, and takes only a few minutes! </p>
+			</div>
+			<div class="row col-ml-10">
+				<div class="col-md-6 process">
+					<div class="process-step">
+						<figure class="process-icon">
+							<img src="{% static 'signalsection/img/process-icons/2.png' %}" alt="#">
+
+						</figure>
+						<h4>Monthly Plan</h4>
+						<p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+						<a href="{% url 'checkout' %}?plan=signalmonthly" class="site-btn sb-gradients sbg-line mt-5">Get Started</a>
+					</div>
+				</div>
+				<div class="col-md-6 process">
+					<div class="process-step">
+						<figure class="process-icon">
+							<img src="{% static 'signalsection/img/process-icons/3.png' %}" alt="#">
+						</figure>
+						<h4>Yearly Plan</h4>
+						<p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+						<a href="{% url 'checkout' %}?plan=signalyearly" class="site-btn sb-gradients sbg-line mt-5">Get Started</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</section>
+	<!-- Process section end -->
+
+
+	<!-- Fact section -->
+	<section class="fact-section gradient-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>60</h2>
+						<p>Support <br> Countries</p>
+						<i class="ti-basketball"></i>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>12K</h2>
+						<p>Transactions  <br> per hour</p>
+						<i class="ti-panel"></i>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>5B</h2>
+						<p>Largest <br> Transactions</p>
+						<i class="ti-stats-up"></i>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>18+</h2>
+						<p>Years <br> of Experience</p>
+						<i class="ti-user"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+ 
+	</section>
+	<!-- Fact section end -->
+
+	<!-- Review section -->
+	<section class="review-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 push-8">
+					<img src="{% static 'signalsection/img/quote.png' %}" alt="" class="quote mb-5">
+					<div class="review-text-slider owl-carousel">
+						<div class="review-text">
+							<p>"It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you'll do things differently.”</p>
+						</div>
+						<div class="review-text">
+							<p>"Forex is exciting because it shows how cheap it can be. Forex is better than currency in that you don’t have to be physically in the same place and, of course, for large transactions, currency can get pretty inconvenient.”</p>
+						</div>
+						<div class="review-text">
+							<p>"If you cannot control your emotions you cannot control your money”</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 pr-0 pull-3">
+					<div class="review-meta-slider owl-carousel pt-5">
+						<div class="author-meta">
+							<div class="author-avatar set-bg" data-setbg="{% static 'signalsection/img/review/1.jpg' %}"></div>
+							<div class="author-name">
+								<h4>Warren Buffett</h4>
+								
+							</div>
+						</div>
+						<div class="author-meta">
+							<div class="author-avatar set-bg" data-setbg="{% static 'signalsection/img/review/2.jpg' %}"></div>
+							<div class="author-name">
+								<h4>Bill Gates</h4>
+								
+							</div>
+						</div>
+						<div class="author-meta">
+							<div class="author-avatar set-bg" data-setbg="{% static 'signalsection/img/review/3.jpg' %}"></div>
+							<div class="author-name">
+								<h4>Warren Buffet</h4>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Review section end -->
+
+
+	<!-- Newsletter section -->
+	<section class="newsletter-section gradient-bg">
+		<div class="container text-white">
+			<div class="row">
+				<div class="col-lg-7 newsletter-text">
+					<h2>Subscribe to our Newsletter</h2>
+					<p>Sign up for our weekly industry updates, insider perspectives and in-depth market analysis.</p>
+				</div>
+				<div class="col-lg-5 col-md-8 offset-lg-0 offset-md-2">
+					<form method='POST' class="newsletter-form">
+						{% csrf_token %}
+						{{ form.email }}
+						<button type="submit">Get Started</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Newsletter section end -->
+
+
+
+	<!-- Blog section -->
+	<section class="blog-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2>Latest News</h2>
+				<p>Forex is the simplest way to exchange money at very low cost.</p>
+			</div>
+			<div class="row">
+				<!-- blog item -->
+				<div class="col-md-4">
+					<div class="blog-item">
+						<figure class="blog-thumb">
+							<img src="{% static 'signalsection/img/blog/1.jpg' %}" alt="">
+						</figure>
+						<div class="blog-text">
+							<div class="post-date">03 jan 2018</div>
+							<h4 class="blog-title"><a href="">Coinbase to Reopen the GDAX Forex Cash-Euro Order Book</a></h4>
+							<div class="post-meta">
+								<a href=""><span>by</span> Admin</a>
+								<a href=""><i class="fa fa-heart-o"></i> 234 Likes</a>
+								<a href=""><i class="fa fa-comments-o"></i> 08 comments</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- blog item -->
+				<div class="col-md-4">
+					<div class="blog-item">
+						<figure class="blog-thumb">
+							<img src="{% static 'signalsection/img/blog/2.jpg' %}" alt="">
+						</figure>
+						<div class="blog-text">
+							<div class="post-date">28 dec 2018</div>
+							<h4 class="blog-title"><a href="">Blockchain Rolls Out Trading Feature for 22 States in the U.S</a></h4>
+							<div class="post-meta">
+								<a href=""><span>by</span> Admin</a>
+								<a href=""><i class="fa fa-heart-o"></i> 234 Likes</a>
+								<a href=""><i class="fa fa-comments-o"></i> 08 comments</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- blog item -->
+				<div class="col-md-4">
+					<div class="blog-item">
+						<figure class="blog-thumb">
+							<img src="{% static 'signalsection/img/blog/3.jpg' %}" alt="">
+						</figure>
+						<div class="blog-text">
+							<div class="post-date">28 aug 2018</div>
+							<h4 class="blog-title"><a href="">This Week in Forex: Up, Down and Sideways</a></h4>
+							<div class="post-meta">
+								<a href=""><span>by</span> Admin</a>
+								<a href=""><i class="fa fa-heart-o"></i> 234 Likes</a>
+								<a href=""><i class="fa fa-comments-o"></i> 08 comments</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog section end -->
+
+{% endblock %}

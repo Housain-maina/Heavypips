@@ -1,0 +1,10 @@
+{% autoescape off %}
+Hi {{ user.first_name }},
+Please click the link to confirm your registration,
+
+{{ domain }}{% url 'activate-account'  uidb64=uid token=token %}
+This link will be invalid if you don't activate your account within 7 days.
+If you did not try to register an account with us, just ignore this message.
+
+{% endautoescape %}
+

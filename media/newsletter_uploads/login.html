@@ -1,0 +1,71 @@
+{% extends "signalsection/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+{% block content %}
+<!-- Page info section -->
+    <section class="page-info-section">
+    <div class="container">
+
+    </div>
+          
+</section>
+    
+    
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-{{message.tags}} text-center">{{ message }}</div>
+              {% endfor %}
+          {% endif %}
+          
+         
+<!-- Contact section -->
+<section class="contact-page spad">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                <form method='POST' class="contact-form">
+                    {% csrf_token %}
+                    <div class="row justify-content-center">
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                {{ form.username|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                 {{ form.password|as_crispy_field }}
+                                 {{ message }}
+                                {% if form.errors %}
+                                <div class="alert alert-danger text-center">
+                                    username or password not correct
+                                 </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button class="site-btn sb-gradients mt-4" type='submit'>Sign In</button>
+                    </div>
+                    <div class="text-center pt-3">
+                          <small class="text-muted text-center"><a href="{% url 'password-reset' %}">Forgot Password?</a></small>
+                    </div>
+                    <div class="text-right">
+                          <small class="text-muted text-right">Need An Account?<a href="{% url 'register' %}"> Sign Up</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact section end -->
+
+
+
+{% endblock %}

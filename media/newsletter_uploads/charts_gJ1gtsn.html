@@ -1,0 +1,66 @@
+{% extends 'signalsection/base.html' %}
+{% load static %}
+
+
+{% block content %}
+     <!-- Page info section -->
+	<section class="page-info-section">
+		<div class="container">
+			<h2>Introduction</h2>
+			<div class="site-beradcamb">
+				<a href="{% url 'home' %}">Home</a>
+				<span><i class="fa fa-angle-right"></i>Charts</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page info end -->
+
+
+<!-- Blog section -->
+
+	<section class="single-blog-page spad">
+		<div class="container">
+
+			<div class="row">
+                
+				<div class="col-lg-8">
+					<div class="blog-item bi-feature">
+						
+						<div class="blog-text">
+                            
+
+                           
+                        </div>
+                        
+					</div>
+                </div>
+                
+				<div class="col-lg-4 col-md-6 sideber pt-5 pt-lg-0">
+					<div class="widget-area">
+						<!-- TradingView Widget BEGIN -->
+						<div class="tradingview-widget-container">
+						  <div class="tradingview-widget-container__widget"></div>
+						  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+						  {
+						  "colorTheme": "light",
+						  "isTransparent": true,
+						  "width": "100%",
+						  "height": "100%",
+						  "locale": "en",
+						  "importanceFilter": "0,1"
+						}
+						  </script>
+						</div>
+						<!-- TradingView Widget END -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog section end -->
+
+
+
+
+{% endblock %}
+

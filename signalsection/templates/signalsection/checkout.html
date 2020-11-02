@@ -1,0 +1,47 @@
+{% extends "signalsection/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+{% block content %}
+    <section class="page-info-section">
+        <div class="container">
+        </div>
+    </section>
+
+    <section class="process-section spad">
+		<div class="container">
+			<div class="section-title">
+				<h2 class="text-center">Checkout</h2>
+			</div>
+
+				<div class="process">
+					<div class="process-step">
+						<figure class="process-icon">
+							<img src="{% static 'signalsection/img/process-icons/2.png' %}" alt="#">
+
+						</figure>
+						<h4>{{ title }}</h4>
+						<p></p>
+						<form action="{% url 'checkout' %}" method="POST">
+						{% csrf_token %}
+						<script
+						  src="https://js.paystack.co/v1/inline.js" 
+						  data-key="pk_test_767ac53f502e048745bfe2e3bdc297b1aee27851"
+						  data-email= "{{ request.user.email }}"
+						  data-plan = "{{ plan_code }}"
+						  data-amount = "{{ price }}" >
+						</script>
+					 	 </form>
+					</div>
+				</div>
+
+
+		</div>
+
+
+
+	</section>
+
+{% endblock %}

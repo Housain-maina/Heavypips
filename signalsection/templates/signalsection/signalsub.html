@@ -1,0 +1,53 @@
+{% extends "signalsection/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+{% block content %}
+        <section class="page-info-section">
+        <div class="container">
+            <h2>Signals</h2>
+            <div class="site-beradcamb">
+                <a href="{% url 'home' %}">Home</a>
+                <span><i class="fa fa-angle-right"></i>Signals</span>
+            </div>
+        </div>
+        </section>
+
+
+        <section class="process-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2>Choose A Plan</h2>
+				<p>Start learning about Forex with interactive tutorials. It’s fun, easy, and takes only a few minutes! </p>
+			</div>
+			<div class="row col-ml-10">
+				<div class="col-md-6 process">
+					<div class="process-step">
+						<figure class="process-icon">
+							<img src="{% static 'signalsection/img/process-icons/2.png' %}" alt="#">
+						</figure>
+						<h4>Monthly Plan</h4>
+						<p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+					    <a href="{% url 'checkout' %}?plan=signalmonthly" class="site-btn sb-gradients sbg-line mt-5">Subscribe</a>
+                    </div>
+				</div>
+				<div class="col-md-6 process">
+					<div class="process-step">
+						<figure class="process-icon">
+							<img src="{% static 'signalsection/img/process-icons/3.png' %}" alt="#">
+						</figure>
+						<h4>Yearly Plan</h4>
+						<p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+					    <a href="{% url 'checkout' %}?plan=signalyearly" class="site-btn sb-gradients sbg-line mt-5">Subscribe</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</section>
+
+{% endblock %}

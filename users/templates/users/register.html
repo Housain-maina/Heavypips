@@ -1,0 +1,91 @@
+{% extends "signalsection/base.html" %}
+{% load crispy_forms_tags %}
+{% crispy example_form %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<!-- Page info section -->
+<section class="page-info-section">
+    <div class="container">
+    </div>
+</section>
+<!-- Page info end -->
+    
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+              {% endfor %}
+          {% endif %}
+
+<!-- Contact section -->
+<section class="contact-page spad">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form method='POST' class="contact-form">
+                    {% csrf_token %}
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.media }}
+                                {{ form.first_name|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                 {{ form.last_name|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                 {{ form.phone|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                 {{ form.birth_date|as_crispy_field }}
+                            </div>
+                        </div>
+                         <div class="col-md-12">
+                            <div class="form-group">
+                                 {{ form.email|as_crispy_field }}
+                                {% for error in form.email.errors %}
+                                <div class="row">
+                                    <div class="alert alert-danger">{{ error }}</div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                 {{ form.password1|as_crispy_field }}
+
+                            </div>
+                        </div>
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                 {{ form.password2|as_crispy_field }}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button class="site-btn sb-gradients mt-4" type='submit'>Sign Up</button>
+                    </div>
+                    <div class="text-right pt-3">
+                          <small class="text-muted text-right">Already Have An Account?<a href="{% url 'login' %}"> Sign In</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact section end -->
+
+
+        
+{% endblock %}
