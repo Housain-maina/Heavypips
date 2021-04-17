@@ -185,9 +185,9 @@ def checkout(request):
                                          last_name=request.user.last_name,
                                          phone= str(request.user.phone),
                                          )
-        plan_code = 'PLN_6f1b0f6pssxrill'
+        plan_code = '***********'
         if request.POST.get('plan') == 'signalyearly':
-            plan_code = 'PLN_yfxeiya576eivzz'
+            plan_code = '******'
 
         else:
             customer_subscription = pstk.subscription.create(customer=pstk_user['data']['customer_code'],
@@ -206,14 +206,14 @@ def checkout(request):
         plan = 'signalmonthly'
         name = 'Monthly Signal'
         price = 5000
-        plan_code = 'PLN_6f1b0f6pssxrill'
+        plan_code = '********'
         title_plan = 'Monthly Plan'
         if request.method == 'GET':
             if request.GET['plan'] == 'signalyearly':
                 plan = 'signalyearly'
                 price = 50000
                 name = 'Yearly Signals'
-                plan_code = 'PLN_yfxeiya576eivzz'
+                plan_code = '**********'
                 title_plan = 'Yearly Plan'
 
         return render(request, 'signalsection/checkout.html',
