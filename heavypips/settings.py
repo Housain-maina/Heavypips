@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!1*$@7owwb!m)^#&1j#wj3(4-(px0)c66$^^ppivn1827)9$w)'
+SECRET_KEY = '**********'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -49,11 +49,11 @@ INSTALLED_APPS = [
 
 FROM_EMAIL = 'heavypips@yandex.com'
 
-PAYSTACK_KEY = 'sk_test_6cb959969c9e6f9b1681d90c1dae9e2981c46ada'
+PAYSTACK_KEY = '************'
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
 #TWILIO_DEFAULT_CALLERID = os.environ.get('TWILIO_DEFAULT_CALLERID')
-TWILIO_PHONE = '+12056914181'
+TWILIO_PHONE = '**************'
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 PHONENUMBER_DEFAULT_REGION = 'NG'
 #DJANGO_TWILIO_FORGERY_PROTECTION = True
